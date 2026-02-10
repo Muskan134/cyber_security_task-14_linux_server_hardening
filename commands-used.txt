@@ -1,0 +1,90 @@
+STEP 1: System information and open ports check
+Command:
+whoami
+Purpose: Check current logged-in user
+
+Command:
+uname -a
+Purpose: Check Linux OS and kernel version
+
+Command:
+ss -tuln
+Purpose: Check all open and listening network ports
+
+
+STEP 2: User accounts and sudo access review
+Command:
+cut -d: -f1 /etc/passwd
+Purpose: List all users present in the system
+
+Command:
+getent group sudo
+Purpose: Check which users have sudo (admin) access
+
+
+STEP 3: Disable root login
+Command:
+sudo passwd -l root
+Purpose: Lock root account to prevent direct root login
+
+
+STEP 4: System update and security patches
+Command:
+sudo apt update && sudo apt upgrade -y
+Purpose: Update system packages and install security updates
+
+Command:
+sudo apt install unattended-upgrades -y
+Purpose: Enable automatic security updates
+
+
+STEP 5: Firewall configuration
+Command:
+sudo apt install ufw -y
+Purpose: Install firewall service (UFW)
+
+Command:
+sudo ufw enable
+Purpose: Enable firewall protection
+
+Command:
+sudo ufw allow ssh
+Purpose: Allow SSH access for remote login
+
+Command:
+sudo ufw status
+Purpose: Check firewall status and rules
+
+
+STEP 6: Disable unnecessary services
+Command:
+systemctl list-unit-files --type=service
+Purpose: List all system services
+
+Command:
+sudo systemctl stop apache2
+Purpose: Stop unused service
+
+Command:
+sudo systemctl disable apache2
+Purpose: Disable unused service from auto-start
+
+
+STEP 7: Secure file permissions
+Command:
+sudo chmod 644 /etc/passwd
+Purpose: Set secure permission for passwd file
+
+Command:
+sudo chmod 600 /etc/shadow
+Purpose: Protect sensitive password file
+
+
+STEP 8: System log review
+Command:
+sudo cat /var/log/auth.log
+Purpose: Review login and authentication logs
+
+Command:
+sudo journalctl -xe
+Purpose: Review system activity and errors
