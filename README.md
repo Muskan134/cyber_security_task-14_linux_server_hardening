@@ -1,4 +1,4 @@
-# Linux Server Hardening – Task 14
+## Linux Server Hardening – Task 14
 
 ## Objective
 Secure a Linux server by applying basic hardening techniques.
